@@ -1,6 +1,8 @@
 {
-  "last_node_id": 51,
-  "last_link_id": 54,
+  "id": "b3951e8d-a7bd-48a8-bf05-57af5373eb27",
+  "revision": 0,
+  "last_node_id": 52,
+  "last_link_id": 55,
   "nodes": [
     {
       "id": 7,
@@ -10,16 +12,19 @@
         -255
       ],
       "size": [
-        560.1107513648193,
-        103.60144459895338
+        560.1107788085938,
+        103.60144805908203
       ],
       "flags": {
         "collapsed": false
       },
-      "order": 1,
+      "order": 0,
       "mode": 0,
+      "inputs": [],
+      "outputs": [],
       "properties": {
-        "text": ""
+        "text": "",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "当 MiniCPM VQA 同时接收到图像和视频信息时，它会仅处理视频信息而忽略图像信息。如果您想处理图像信息，请断开视频信息的输入。\n\nWhen MiniCPM VQA simultaneously receives both image and video information, it processes only the video information while ignoring the image information. If you want to process the image information, please disconnect the input of the video information."
@@ -35,8 +40,8 @@
         -115
       ],
       "size": [
-        565.5332447212019,
-        259.1318214920463
+        565.5332641601562,
+        259.1318359375
       ],
       "flags": {},
       "order": 2,
@@ -45,60 +50,65 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 54,
-          "widget": {
-            "name": "text"
-          }
+          "link": 55
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
-        "Node name for S&R": "DisplayText"
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "Node name for S&R": "DisplayText",
+        "widget_ue_connectable": {
+          "text": true
+        }
       },
       "widgets_values": [
-        "",
         "A quantum group is a mathematical object that generalizes the concept of a classical group to the realm of quantum mechanics. In classical mathematics, a group is a set of elements with a binary operation (such as addition or multiplication) that satisfies certain properties, such as associativity and the existence of an identity element.\nIn the context of quantum mechanics, a quantum group is a Hopf algebra that is associated with a classical group. The elements of a quantum group are represented by operators that satisfy the same algebraic rules as the elements of the corresponding classical group. However, the operators in a quantum group also have additional properties related to the uncertainty principle, which is a fundamental principle in quantum mechanics that states that it is impossible to precisely measure both the position and momentum of a particle at the same time.\nOne example of a quantum group is the quantum group associated with the special unitary group SU(2), which plays a central role in the study of quantum spin systems. Another example is the quantum group associated with the orthogonal group SO(3), which is used in the study of quantum mechanics of angular momentum.\nQuantum groups have many applications in physics and other areas of mathematics, including the study of quantum field theory, integrable systems, and knot theory. They are also important tools in the development of quantum computing, where they can be used to construct quantum algorithms for solving problems that are difficult or impossible to solve using classical computers."
       ]
     },
     {
-      "id": 51,
+      "id": 52,
       "type": "MiniCPM_VQA",
       "pos": [
         -21,
         -256
       ],
-      "size": {
-        "0": 400,
-        "1": 400
-      },
+      "size": [
+        400,
+        492
+      ],
       "flags": {},
-      "order": 0,
+      "order": 1,
       "mode": 0,
       "inputs": [
         {
-          "name": "source_video_path",
-          "type": "PATH",
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
           "link": null
         },
         {
-          "name": "source_image_path_1st",
+          "name": "source_image_1st",
+          "shape": 7,
           "type": "IMAGE",
           "link": null
         },
         {
-          "name": "source_image_path_2nd",
+          "name": "source_image_2nd",
+          "shape": 7,
           "type": "IMAGE",
           "link": null
         },
         {
-          "name": "source_image_path_3rd",
+          "name": "source_image_3rd",
+          "shape": 7,
           "type": "IMAGE",
           "link": null
         }
@@ -108,19 +118,20 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            54
-          ],
-          "shape": 3,
-          "slot_index": 0
+            55
+          ]
         }
       ],
       "properties": {
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {},
         "Node name for S&R": "MiniCPM_VQA"
       },
       "widgets_values": [
         "Quantum Group",
         "MiniCPM-V-2_6-int4",
-        true,
+        false,
         0.8,
         100,
         0.7,
@@ -128,15 +139,19 @@
         2048,
         64,
         2,
-        1501,
-        "randomize"
+        -1,
+        "randomize",
+        [
+          false,
+          true
+        ]
       ]
     }
   ],
   "links": [
     [
-      54,
-      51,
+      55,
+      52,
       0,
       49,
       0,
@@ -147,12 +162,19 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.2839025177495011,
+      "scale": 0.9646149645000008,
       "offset": [
-        174.06698959850874,
-        351.1944051783393
+        723.046529367313,
+        611.7200987866283
       ]
-    }
+    },
+    "groupNodes": {},
+    "ue_links": [],
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }

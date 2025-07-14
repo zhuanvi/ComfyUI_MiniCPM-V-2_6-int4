@@ -1,6 +1,8 @@
 {
-  "last_node_id": 55,
-  "last_link_id": 66,
+  "id": "7ef5c0e0-b61f-4ad8-a2e7-9eb86aaa15e6",
+  "revision": 0,
+  "last_node_id": 57,
+  "last_link_id": 68,
   "nodes": [
     {
       "id": 7,
@@ -9,17 +11,20 @@
         -428,
         -256
       ],
-      "size": {
-        "0": 724.4190673828125,
-        "1": 79.42505645751953
-      },
+      "size": [
+        724.4190673828125,
+        88
+      ],
       "flags": {
         "collapsed": false
       },
-      "order": 1,
+      "order": 0,
       "mode": 0,
+      "inputs": [],
+      "outputs": [],
       "properties": {
-        "text": ""
+        "text": "",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "当 MiniCPM VQA 同时接收到图像和视频信息时，它会仅处理视频信息而忽略图像信息。如果您想处理图像信息，请断开视频信息的输入。\n\nWhen MiniCPM VQA simultaneously receives both image and video information, it processes only the video information while ignoring the image information. If you want to process the image information, please disconnect the input of the video information."
@@ -35,8 +40,8 @@
         277
       ],
       "size": [
-        813.5119048309946,
-        141.5117891133587
+        813.5119018554688,
+        141.5117950439453
       ],
       "flags": {},
       "order": 3,
@@ -45,50 +50,51 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 65,
-          "widget": {
-            "name": "text"
-          }
+          "link": 67
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
-        "Node name for S&R": "DisplayText"
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "Node name for S&R": "DisplayText",
+        "widget_ue_connectable": {
+          "text": true
+        }
       },
-      "widgets_values": [
-        "",
-        "The video captures a serene sunset scene with the sun descending towards the horizon. The sky is painted in vibrant hues of orange, yellow, and red, creating a warm gradient that transitions from fiery tones near the setting sun to softer shades as it moves upward. Silhouetted against this colorful backdrop is a solitary tree, its bare branches reaching out into the sky, adding a stark contrast to the vivid colors. A flock of birds can be seen flying across the sky, their dark shapes moving dynamically through the air, contributing to the sense of movement within the otherwise tranquil setting. The overall atmosphere is one of peacefulness and natural beauty, emphasizing the fleeting yet mesmerizing moments of twilight."
-      ]
+      "widgets_values": []
     },
     {
-      "id": 54,
+      "id": 56,
       "type": "MiniCPM_VQA_Polished",
       "pos": [
         -57,
         -129
       ],
-      "size": {
-        "0": 400,
-        "1": 360
-      },
+      "size": [
+        400,
+        372
+      ],
       "flags": {},
       "order": 2,
       "mode": 0,
       "inputs": [
         {
-          "name": "source_video_path",
-          "type": "PATH",
-          "link": 66
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": 68
         },
         {
-          "name": "source_image_path",
+          "name": "source_image",
+          "shape": 7,
           "type": "IMAGE",
           "link": null
         }
@@ -98,14 +104,15 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            65
-          ],
-          "shape": 3,
-          "slot_index": 0
+            67
+          ]
         }
       ],
       "properties": {
-        "Node name for S&R": "MiniCPM_VQA_Polished"
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "Node name for S&R": "MiniCPM_VQA_Polished",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "Describe the video in detail",
@@ -118,76 +125,87 @@
         2048,
         64,
         2,
-        1746,
-        "randomize"
+        191,
+        "randomize",
+        [
+          false,
+          true
+        ]
       ]
     },
     {
       "id": 55,
       "type": "LoadVideo",
       "pos": [
-        -479,
-        -128
+        -485.4405822753906,
+        -143.1902618408203
       ],
       "size": [
-        409.98541024642964,
-        358.0214538574219
+        409.98541259765625,
+        399.4589538574219
       ],
       "flags": {},
-      "order": 0,
+      "order": 1,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
-          "name": "PATH",
-          "type": "PATH",
+          "name": "VIDEO",
+          "type": "VIDEO",
           "links": [
-            66
-          ],
-          "shape": 3
+            68
+          ]
         }
       ],
       "properties": {
-        "Node name for S&R": "LoadVideo"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadVideo",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "AnimateDiff_00002.mp4",
         "Video",
-        {
-          "hidden": false,
-          "paused": false,
-          "params": {}
-        }
+        "[object Object]"
       ]
     }
   ],
   "links": [
     [
-      65,
-      54,
+      67,
+      56,
       0,
       51,
       0,
       "STRING"
     ],
     [
-      66,
+      68,
       55,
       0,
-      54,
+      56,
       0,
-      "PATH"
+      "VIDEO"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9646149645000013,
+      "scale": 0.7247295000000004,
       "offset": [
-        829.9398344807752,
-        321.3710639555439
+        1721.7796674853303,
+        456.18292761210546
       ]
-    }
+    },
+    "groupNodes": {},
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }
