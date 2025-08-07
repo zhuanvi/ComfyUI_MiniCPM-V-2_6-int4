@@ -3,9 +3,10 @@ import torch
 import folder_paths
 from transformers import AutoTokenizer, AutoModel
 from torchvision.transforms.v2 import ToPILImage
-from decord import VideoReader, cpu  # pip install decord
 from PIL import Image
-
+from comfy.comfy_types import IO
+from comfy_api.input import VideoInput
+import numpy as np
 
 class MiniCPM_VQA:
     def __init__(self):
@@ -73,10 +74,10 @@ class MiniCPM_VQA:
                 "seed": ("INT", {"default": -1}),  # add seed parameter, default is -1
             },
             "optional": {
-                "source_video_path": ("PATH",),
-                "source_image_path_1st": ("IMAGE",),
-                "source_image_path_2nd": ("IMAGE",),
-                "source_image_path_3rd": ("IMAGE",),
+                "source_video": (IO.VIDEO,),
+                "source_image_1st": ("IMAGE",),
+                "source_image_2nd": ("IMAGE",),
+                "source_image_3rd": ("IMAGE",),
             },
         }
 
@@ -84,16 +85,16 @@ class MiniCPM_VQA:
     FUNCTION = "inference"
     CATEGORY = "Comfyui_MiniCPM-V-2_6-int4"
 
-    def encode_video(self, source_video_path, MAX_NUM_FRAMES):
+    def encode_video(self, source_video: VideoInput, MAX_NUM_FRAMES):
         def uniform_sample(l, n):  # noqa: E741
             gap = len(l) / n
             idxs = [int(i * gap + gap / 2) for i in range(n)]
             return [l[i] for i in idxs]
 
-        vr = VideoReader(source_video_path, ctx=cpu(0))
-        total_frames = len(vr) + 1
-        print("Total frames:", total_frames)
-        avg_fps = vr.get_avg_fps()
+        components = source_video.get_components()
+        vr = components.images
+
+        avg_fps = float(components.frame_rate)
         print("Get average FPS(frame per second):", avg_fps)
         sample_fps = round(avg_fps / 1)  # FPS
         duration = len(vr) / avg_fps
@@ -105,8 +106,8 @@ class MiniCPM_VQA:
         frame_idx = [i for i in range(0, len(vr), sample_fps)]
         if len(frame_idx) > MAX_NUM_FRAMES:
             frame_idx = uniform_sample(frame_idx, MAX_NUM_FRAMES)
-        frames = vr.get_batch(frame_idx).asnumpy()
-        frames = [Image.fromarray(v.astype("uint8")) for v in frames]
+        frames = [vr[idx] for idx in frame_idx]
+        frames = [ToPILImage()(v.permute([2, 0, 1])).convert("RGB") for v in frames]
         print("num frames:", len(frames))
         return frames
 
@@ -123,10 +124,10 @@ class MiniCPM_VQA:
         video_max_num_frames,
         video_max_slice_nums,
         seed,
-        source_image_path_1st=None,
-        source_image_path_2nd=None,
-        source_image_path_3rd=None,
-        source_video_path=None,
+        source_image_1st=None,
+        source_image_2nd=None,
+        source_image_3rd=None,
+        source_video: VideoInput=None,
     ):
         if seed != -1:
             torch.manual_seed(seed)
@@ -160,85 +161,85 @@ class MiniCPM_VQA:
             )
 
         with torch.no_grad():
-            if source_video_path:
-                frames = self.encode_video(source_video_path, video_max_num_frames)
+            if source_video:
+                frames = self.encode_video(source_video, video_max_num_frames)
                 msgs = [{"role": "user", "content": frames + [text]}]
             elif (
-                source_image_path_1st is not None
-                and source_image_path_2nd is not None
-                and source_image_path_3rd is not None
+                source_image_1st is not None
+                and source_image_2nd is not None
+                and source_image_3rd is not None
             ):
                 image1 = ToPILImage()(
-                    source_image_path_1st.permute([0, 3, 1, 2])[0]
+                    source_image_1st.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 image2 = ToPILImage()(
-                    source_image_path_2nd.permute([0, 3, 1, 2])[0]
+                    source_image_2nd.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 image3 = ToPILImage()(
-                    source_image_path_3rd.permute([0, 3, 1, 2])[0]
+                    source_image_3rd.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 msgs = [{"role": "user", "content": [image1, image2, image3, text]}]
             elif (
-                source_image_path_1st is not None
-                and source_image_path_2nd is not None
-                and source_image_path_3rd is None
+                source_image_1st is not None
+                and source_image_2nd is not None
+                and source_image_3rd is None
             ):
                 image1 = ToPILImage()(
-                    source_image_path_1st.permute([0, 3, 1, 2])[0]
+                    source_image_1st.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 image2 = ToPILImage()(
-                    source_image_path_2nd.permute([0, 3, 1, 2])[0]
+                    source_image_2nd.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 msgs = [{"role": "user", "content": [image1, image2, text]}]
             elif (
-                source_image_path_1st is not None
-                and source_image_path_2nd is None
-                and source_image_path_3rd is not None
+                source_image_1st is not None
+                and source_image_2nd is None
+                and source_image_3rd is not None
             ):
                 image1 = ToPILImage()(
-                    source_image_path_1st.permute([0, 3, 1, 2])[0]
+                    source_image_1st.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 image3 = ToPILImage()(
-                    source_image_path_3rd.permute([0, 3, 1, 2])[0]
+                    source_image_3rd.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 msgs = [{"role": "user", "content": [image1, image3, text]}]
             elif (
-                source_image_path_1st is None
-                and source_image_path_2nd is not None
-                and source_image_path_3rd is not None
+                source_image_1st is None
+                and source_image_2nd is not None
+                and source_image_3rd is not None
             ):
                 image2 = ToPILImage()(
-                    source_image_path_2nd.permute([0, 3, 1, 2])[0]
+                    source_image_2nd.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 image3 = ToPILImage()(
-                    source_image_path_3rd.permute([0, 3, 1, 2])[0]
+                    source_image_3rd.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 msgs = [{"role": "user", "content": [image2, image3, text]}]
             elif (
-                source_image_path_1st is not None
-                and source_image_path_2nd is None
-                and source_image_path_3rd is None
+                source_image_1st is not None
+                and source_image_2nd is None
+                and source_image_3rd is None
             ):
                 image = ToPILImage()(
-                    source_image_path_1st.permute([0, 3, 1, 2])[0]
+                    source_image_1st.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 msgs = [{"role": "user", "content": [image, text]}]
             elif (
-                source_image_path_1st is None
-                and source_image_path_2nd is not None
-                and source_image_path_3rd is None
+                source_image_1st is None
+                and source_image_2nd is not None
+                and source_image_3rd is None
             ):
                 image = ToPILImage()(
-                    source_image_path_2nd.permute([0, 3, 1, 2])[0]
+                    source_image_2nd.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 msgs = [{"role": "user", "content": [image, text]}]
             elif (
-                source_image_path_1st is None
-                and source_image_path_2nd is None
-                and source_image_path_3rd is not None
+                source_image_1st is None
+                and source_image_2nd is None
+                and source_image_3rd is not None
             ):
                 image = ToPILImage()(
-                    source_image_path_3rd.permute([0, 3, 1, 2])[0]
+                    source_image_3rd.permute([0, 3, 1, 2])[0]
                 ).convert("RGB")
                 msgs = [{"role": "user", "content": [image, text]}]
             else:

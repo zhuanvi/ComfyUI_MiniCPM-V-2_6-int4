@@ -1,6 +1,8 @@
 {
-  "last_node_id": 53,
-  "last_link_id": 63,
+  "id": "f047c436-5a6d-49eb-87d0-0ace2b958f96",
+  "revision": 0,
+  "last_node_id": 56,
+  "last_link_id": 67,
   "nodes": [
     {
       "id": 7,
@@ -9,17 +11,20 @@
         -480,
         -284
       ],
-      "size": {
-        "0": 724.4190673828125,
-        "1": 79.42505645751953
-      },
+      "size": [
+        724.4190673828125,
+        88
+      ],
       "flags": {
         "collapsed": false
       },
       "order": 0,
       "mode": 0,
+      "inputs": [],
+      "outputs": [],
       "properties": {
-        "text": ""
+        "text": "",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "当 MiniCPM VQA 同时接收到图像和视频信息时，它会仅处理视频信息而忽略图像信息。如果您想处理图像信息，请断开视频信息的输入。\n\nWhen MiniCPM VQA simultaneously receives both image and video information, it processes only the video information while ignoring the image information. If you want to process the image information, please disconnect the input of the video information."
@@ -28,115 +33,41 @@
       "bgcolor": "#653"
     },
     {
-      "id": 50,
-      "type": "LoadVideo",
-      "pos": [
-        -568,
-        -158
-      ],
-      "size": [
-        469.4351950653901,
-        397.9642639160156
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "PATH",
-          "type": "PATH",
-          "links": [
-            62
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadVideo"
-      },
-      "widgets_values": [
-        "AnimateDiff_00002.mp4",
-        "Video",
-        {
-          "hidden": false,
-          "paused": false,
-          "params": {}
-        }
-      ]
-    },
-    {
-      "id": 51,
-      "type": "DisplayText",
-      "pos": [
-        -558,
-        287
-      ],
-      "size": [
-        861.4327343832845,
-        107.98898362105666
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 63,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": null,
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DisplayText"
-      },
-      "widgets_values": [
-        "",
-        "The video captures a serene sunset scene. The sky is painted with warm hues of orange and red, creating a dramatic backdrop as the sun descends towards the horizon. Silhouetted against this vibrant sky is a solitary tree, its bare branches reaching upwards. A flock of birds can be seen in mid-flight, their dark silhouettes contrasting sharply against the glowing orb of the setting sun. The overall atmosphere is one of tranquility and natural beauty, as the day transitions into night."
-      ]
-    },
-    {
-      "id": 53,
+      "id": 54,
       "type": "MiniCPM_VQA",
       "pos": [
         -89,
         -159
       ],
-      "size": {
-        "0": 400,
-        "1": 400
-      },
+      "size": [
+        400,
+        492
+      ],
       "flags": {},
       "order": 2,
       "mode": 0,
       "inputs": [
         {
-          "name": "source_video_path",
-          "type": "PATH",
-          "link": 62
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": 66
         },
         {
-          "name": "source_image_path_1st",
+          "name": "source_image_1st",
+          "shape": 7,
           "type": "IMAGE",
           "link": null
         },
         {
-          "name": "source_image_path_2nd",
+          "name": "source_image_2nd",
+          "shape": 7,
           "type": "IMAGE",
           "link": null
         },
         {
-          "name": "source_image_path_3rd",
+          "name": "source_image_3rd",
+          "shape": 7,
           "type": "IMAGE",
           "link": null
         }
@@ -146,13 +77,14 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            63
-          ],
-          "shape": 3,
-          "slot_index": 0
+            67
+          ]
         }
       ],
       "properties": {
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {},
         "Node name for S&R": "MiniCPM_VQA"
       },
       "widgets_values": [
@@ -166,25 +98,104 @@
         2048,
         64,
         2,
-        1617,
-        "randomize"
+        87,
+        "randomize",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 55,
+      "type": "LoadVideo",
+      "pos": [
+        -585.104736328125,
+        -135.1929931640625
+      ],
+      "size": [
+        469.4351806640625,
+        397.9642639160156
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            66
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "AnimateDiff_00002.mp4",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 56,
+      "type": "DisplayText",
+      "pos": [
+        -552.2982177734375,
+        373.6666259765625
+      ],
+      "size": [
+        861.4327392578125,
+        126
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 67
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "DisplayText"
+      },
+      "widgets_values": [
+        "The video captures a serene sunset scene. The sun is positioned near the horizon, casting a warm orange glow across the sky, which gradually transitions into darker hues as it moves upwards. Silhouetted against this vibrant backdrop is a lone tree with a distinct shape, possibly indicating its species or health. A flock of birds can be seen in flight above and around the tree, adding a dynamic element to the otherwise tranquil setting. Their dark forms contrast sharply with the bright colors of the sunset. The landscape below appears flat and undulating, suggesting an open field or plain. The overall atmosphere is peaceful, evoking a sense of calmness and natural beauty."
       ]
     }
   ],
   "links": [
     [
-      62,
-      50,
+      66,
+      55,
       0,
-      53,
+      54,
       0,
-      "PATH"
+      "VIDEO"
     ],
     [
-      63,
-      53,
+      67,
+      54,
       0,
-      51,
+      56,
       0,
       "STRING"
     ]
@@ -193,12 +204,20 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9646149645000006,
+      "scale": 0.7972024500000008,
       "offset": [
-        896.8108299009335,
-        348.18733398490764
+        1563.5558868892062,
+        490.48477082806016
       ]
-    }
+    },
+    "groupNodes": {},
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }

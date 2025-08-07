@@ -1,6 +1,8 @@
 {
-  "last_node_id": 60,
-  "last_link_id": 71,
+  "id": "961bfaa7-3def-4804-8b24-232d21a3abfd",
+  "revision": 0,
+  "last_node_id": 62,
+  "last_link_id": 74,
   "nodes": [
     {
       "id": 7,
@@ -9,17 +11,20 @@
         -986,
         -453
       ],
-      "size": {
-        "0": 717.5083618164062,
-        "1": 82.10267639160156
-      },
+      "size": [
+        717.5083618164062,
+        88
+      ],
       "flags": {
         "collapsed": false
       },
       "order": 0,
       "mode": 0,
+      "inputs": [],
+      "outputs": [],
       "properties": {
-        "text": ""
+        "text": "",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "当 MiniCPM VQA 同时接收到图像和视频信息时，它会仅处理视频信息而忽略图像信息。如果您想处理图像信息，请断开视频信息的输入。\n\nWhen MiniCPM VQA simultaneously receives both image and video information, it processes only the video information while ignoring the image information. If you want to process the image information, please disconnect the input of the video information."
@@ -28,43 +33,215 @@
       "bgcolor": "#653"
     },
     {
-      "id": 51,
-      "type": "DisplayText",
+      "id": 55,
+      "type": "LoadImage",
       "pos": [
-        -697,
-        183
+        -1232,
+        -453
       ],
-      "size": {
-        "0": 396.3633117675781,
-        "1": 321.38140869140625
-      },
+      "size": [
+        210,
+        314
+      ],
       "flags": {},
-      "order": 7,
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            65
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00509_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 56,
+      "type": "LoadImage",
+      "pos": [
+        -1234,
+        -122
+      ],
+      "size": [
+        214.43836975097656,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            66
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00532_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "LoadImage",
+      "pos": [
+        -1232,
+        227
+      ],
+      "size": [
+        210,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            68
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00508_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 59,
+      "type": "PreviewImage",
+      "pos": [
+        -247,
+        -450
+      ],
+      "size": [
+        321.89825439453125,
+        978.513916015625
+      ],
+      "flags": {},
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
-          "name": "text",
-          "type": "STRING",
-          "link": 71,
-          "widget": {
-            "name": "text"
-          }
+          "name": "images",
+          "type": "IMAGE",
+          "link": 69
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "PreviewImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 61,
+      "type": "MiniCPM_VQA_Polished",
+      "pos": [
+        -697,
+        -241
+      ],
+      "size": [
+        400,
+        412
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source_video",
+          "shape": 7,
+          "type": "PATH",
+          "link": null
+        },
+        {
+          "name": "source_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 73
         }
       ],
       "outputs": [
         {
           "name": "STRING",
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": [
+            74
+          ]
         }
       ],
       "properties": {
-        "Node name for S&R": "DisplayText"
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "MiniCPM_VQA_Polished"
       },
       "widgets_values": [
-        "",
-        "In comparing image 1, image 2 and image 3, the differences are as follows: In image 1, Earth is shown in isolation with no other celestial bodies present. In image 2, a moon has been added to the scene, positioned to the left of Earth. Finally, in image 3, Saturn's rings have been added around Earth, creating a dramatic visual effect against the backdrop of space."
+        "Compare image 1, image 2 and image 3, tell me about the differences among them.",
+        "MiniCPM-V-2_6-int4",
+        false,
+        0.8,
+        100,
+        0.7,
+        1.05,
+        2048,
+        64,
+        2,
+        1539,
+        "randomize",
+        [
+          false,
+          true
+        ]
       ]
     },
     {
@@ -74,10 +251,10 @@
         -986,
         -136
       ],
-      "size": {
-        "0": 210,
-        "1": 122
-      },
+      "size": [
+        210,
+        122
+      ],
       "flags": {},
       "order": 4,
       "mode": 0,
@@ -102,16 +279,18 @@
         {
           "name": "images",
           "type": "IMAGE",
+          "slot_index": 0,
           "links": [
             69,
-            70
-          ],
-          "slot_index": 0,
-          "shape": 3
+            73
+          ]
         }
       ],
       "properties": {
-        "Node name for S&R": "MultipleImagesInput"
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "Node name for S&R": "MultipleImagesInput",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         3,
@@ -119,197 +298,42 @@
       ]
     },
     {
-      "id": 55,
-      "type": "LoadImage",
+      "id": 62,
+      "type": "DisplayText",
       "pos": [
-        -1232,
-        -453
+        -692.853271484375,
+        230.68739318847656
       ],
       "size": [
-        210,
-        314
+        396.3633117675781,
+        321.38140869140625
       ],
       "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            65
-          ],
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "ComfyUI_00509_.png",
-        "image"
-      ]
-    },
-    {
-      "id": 56,
-      "type": "LoadImage",
-      "pos": [
-        -1234,
-        -122
-      ],
-      "size": [
-        214.43836975097656,
-        314
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            66
-          ],
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "ComfyUI_00532_.png",
-        "image"
-      ]
-    },
-    {
-      "id": 58,
-      "type": "LoadImage",
-      "pos": [
-        -1232,
-        227
-      ],
-      "size": [
-        210,
-        314
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            68
-          ],
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "ComfyUI_00508_.png",
-        "image"
-      ]
-    },
-    {
-      "id": 59,
-      "type": "PreviewImage",
-      "pos": [
-        -247,
-        -450
-      ],
-      "size": {
-        "0": 321.89825439453125,
-        "1": 978.513916015625
-      },
-      "flags": {},
-      "order": 5,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 69
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 60,
-      "type": "MiniCPM_VQA_Polished",
-      "pos": [
-        -697,
-        -241
-      ],
-      "size": {
-        "0": 400,
-        "1": 360
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "source_video_path",
-          "type": "PATH",
-          "link": null
-        },
-        {
-          "name": "source_image_path",
-          "type": "IMAGE",
-          "link": 70
+          "name": "text",
+          "type": "STRING",
+          "link": 74
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": [
-            71
-          ],
-          "shape": 3,
-          "slot_index": 0
+          "links": null
         }
       ],
       "properties": {
-        "Node name for S&R": "MiniCPM_VQA_Polished"
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "DisplayText"
       },
       "widgets_values": [
-        "Compare image 1, image 2 and image 3, tell me about the differences among them.",
-        "MiniCPM-V-2_6-int4",
-        true,
-        0.8,
-        100,
-        0.7,
-        1.05,
-        2048,
-        64,
-        2,
-        1293,
-        "randomize"
+        "In comparing the three images, we can observe several differences. Image 1 presents a realistic depiction of Earth from space with natural colors and cloud formations. In contrast, image 2 adds an element of fantasy by placing a black sphere alongside Earth, suggesting a celestial body like a planet or moon. Finally, image 3 introduces another layer to the composition by incorporating Saturn's iconic ring system around Earth, creating a surreal juxtaposition between our home planet and one of the most recognizable planetary objects in our solar system."
       ]
     }
   ],
@@ -347,18 +371,18 @@
       "IMAGE"
     ],
     [
-      70,
+      73,
       54,
       0,
-      60,
+      61,
       1,
       "IMAGE"
     ],
     [
-      71,
-      60,
+      74,
+      61,
       0,
-      51,
+      62,
       0,
       "STRING"
     ]
@@ -367,12 +391,20 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7247295000000027,
+      "scale": 0.7247295000000004,
       "offset": [
-        1602.4864516115556,
-        507.1347555005483
+        1951.8660062092763,
+        616.4401437980553
       ]
-    }
+    },
+    "groupNodes": {},
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }

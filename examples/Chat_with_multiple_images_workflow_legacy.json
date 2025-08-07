@@ -1,6 +1,8 @@
 {
-  "last_node_id": 50,
-  "last_link_id": 59,
+  "id": "cf5badb9-49fe-458c-a923-f3b66e937402",
+  "revision": 0,
+  "last_node_id": 52,
+  "last_link_id": 64,
   "nodes": [
     {
       "id": 7,
@@ -10,16 +12,19 @@
         -78
       ],
       "size": [
-        436.56812016891763,
-        108.88176616327235
+        436.568115234375,
+        108.88176727294922
       ],
       "flags": {
         "collapsed": false
       },
-      "order": 3,
+      "order": 0,
       "mode": 0,
+      "inputs": [],
+      "outputs": [],
       "properties": {
-        "text": ""
+        "text": "",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "当 MiniCPM VQA 同时接收到图像和视频信息时，它会仅处理视频信息而忽略图像信息。如果您想处理图像信息，请断开视频信息的输入。\n\nWhen MiniCPM VQA simultaneously receives both image and video information, it processes only the video information while ignoring the image information. If you want to process the image information, please disconnect the input of the video information."
@@ -28,42 +33,77 @@
       "bgcolor": "#653"
     },
     {
-      "id": 43,
-      "type": "LoadImage",
+      "id": 51,
+      "type": "MiniCPM_VQA",
       "pos": [
-        -361,
-        -193
+        -13,
+        -65
       ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
+      "size": [
+        400,
+        492
+      ],
       "flags": {},
-      "order": 0,
+      "order": 4,
       "mode": 0,
-      "outputs": [
+      "inputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            56
-          ],
-          "slot_index": 0,
-          "shape": 3
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
         },
         {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
+          "name": "source_image_1st",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 62
+        },
+        {
+          "name": "source_image_2nd",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 61
+        },
+        {
+          "name": "source_image_3rd",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 63
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            64
+          ]
         }
       ],
       "properties": {
-        "Node name for S&R": "LoadImage"
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "MiniCPM_VQA"
       },
       "widgets_values": [
-        "ComfyUI_00509_.png",
-        "image"
+        "Compare image 1, image 2 and image 3, tell me about the differences among them.",
+        "MiniCPM-V-2_6-int4",
+        false,
+        0.8,
+        100,
+        0.7,
+        1.05,
+        2048,
+        64,
+        2,
+        713,
+        "randomize",
+        [
+          false,
+          true
+        ]
       ]
     },
     {
@@ -73,35 +113,78 @@
         -691,
         15
       ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
+      "size": [
+        315,
+        314
+      ],
       "flags": {},
       "order": 1,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": [
-            57
-          ],
           "slot_index": 0,
-          "shape": 3
+          "links": [
+            61
+          ]
         },
         {
           "name": "MASK",
           "type": "MASK",
-          "links": null,
-          "shape": 3
+          "links": null
         }
       ],
       "properties": {
-        "Node name for S&R": "LoadImage"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "ComfyUI_00532_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "LoadImage",
+      "pos": [
+        -361,
+        -193
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            62
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00509_.png",
         "image"
       ]
     },
@@ -112,32 +195,34 @@
         -360,
         161
       ],
-      "size": {
-        "0": 315,
-        "1": 314
-      },
+      "size": [
+        315,
+        314
+      ],
       "flags": {},
-      "order": 2,
+      "order": 3,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": [
-            58
-          ],
           "slot_index": 0,
-          "shape": 3
+          "links": [
+            63
+          ]
         },
         {
           "name": "MASK",
           "type": "MASK",
-          "links": null,
-          "shape": 3
+          "links": null
         }
       ],
       "properties": {
-        "Node name for S&R": "LoadImage"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "Node name for S&R": "LoadImage",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "ComfyUI_00508_.png",
@@ -145,15 +230,15 @@
       ]
     },
     {
-      "id": 48,
+      "id": 52,
       "type": "DisplayText",
       "pos": [
         411,
         79
       ],
       "size": [
-        451.1885182898909,
-        265.19896846818176
+        451.1885070800781,
+        265.198974609375
       ],
       "flags": {},
       "order": 5,
@@ -162,124 +247,58 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 59,
-          "widget": {
-            "name": "text"
-          }
+          "link": 64
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {},
         "Node name for S&R": "DisplayText"
       },
       "widgets_values": [
-        "",
-        "In the provided images, there are several differences to note:\n\n1. **Image 1**: This image shows Earth as seen from space, with a focus on the Western Hemisphere (North America and South America). The background is dark space with visible stars.\n\n2. **Image 2**: In this second image, the Earth appears in the center of the frame, surrounded by a starry backdrop with a galaxy-like structure visible in the upper right corner. There is also a smaller celestial body, possibly an asteroid or moon, near the Earth's left side.\n\n3. **Image 3**: The third image depicts Earth with its rings, resembling Saturn's rings, surrounding it. The background remains dark space, similar to Image 1, but the inclusion of the rings adds a distinct astronomical element.\n\nThe primary differences lie in the depiction of celestial bodies around Earth and the complexity of the cosmic environment."
-      ]
-    },
-    {
-      "id": 50,
-      "type": "MiniCPM_VQA",
-      "pos": [
-        -13,
-        -65
-      ],
-      "size": {
-        "0": 400,
-        "1": 400
-      },
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "source_video_path",
-          "type": "PATH",
-          "link": null
-        },
-        {
-          "name": "source_image_path_1st",
-          "type": "IMAGE",
-          "link": 56
-        },
-        {
-          "name": "source_image_path_2nd",
-          "type": "IMAGE",
-          "link": 57
-        },
-        {
-          "name": "source_image_path_3rd",
-          "type": "IMAGE",
-          "link": 58
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            59
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MiniCPM_VQA"
-      },
-      "widgets_values": [
-        "Compare image 1, image 2 and image 3, tell me about the differences among them.",
-        "MiniCPM-V-2_6-int4",
-        true,
-        0.8,
-        100,
-        0.7,
-        1.05,
-        2048,
-        64,
-        2,
-        576,
-        "randomize"
+        "In comparing the three images, we observe that image 1 showcases a realistic view of Earth from space with clouds and the sun visible in the background. Image 2 adds an element of fantasy by introducing a black planet beside Earth, which could be interpreted as a moon or another celestial body. Finally, image 3 incorporates a ring system around Earth, giving it the appearance of Saturn, while still maintaining the realistic portrayal of Earth's surface and atmosphere."
       ]
     }
   ],
   "links": [
     [
-      56,
-      43,
-      0,
-      50,
-      1,
-      "IMAGE"
-    ],
-    [
-      57,
+      61,
       45,
       0,
-      50,
+      51,
       2,
       "IMAGE"
     ],
     [
-      58,
+      62,
+      43,
+      0,
+      51,
+      1,
+      "IMAGE"
+    ],
+    [
+      63,
       47,
       0,
-      50,
+      51,
       3,
       "IMAGE"
     ],
     [
-      59,
-      50,
+      64,
+      51,
       0,
-      48,
+      52,
       0,
       "STRING"
     ]
@@ -288,12 +307,20 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8769226950000022,
+      "scale": 1.1671841070450024,
       "offset": [
-        840.512281646217,
-        279.18423579817517
+        596.3171441618107,
+        143.3704450969379
       ]
-    }
+    },
+    "groupNodes": {},
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }

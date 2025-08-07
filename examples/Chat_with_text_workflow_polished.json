@@ -1,6 +1,8 @@
 {
-  "last_node_id": 52,
-  "last_link_id": 55,
+  "id": "7efe6818-5b98-4dbe-aae3-317073142f92",
+  "revision": 0,
+  "last_node_id": 53,
+  "last_link_id": 56,
   "nodes": [
     {
       "id": 7,
@@ -10,16 +12,19 @@
         -254
       ],
       "size": [
-        443.0672250364122,
-        104.75543052432553
+        443.0672302246094,
+        104.75543212890625
       ],
       "flags": {
         "collapsed": false
       },
-      "order": 1,
+      "order": 0,
       "mode": 0,
+      "inputs": [],
+      "outputs": [],
       "properties": {
-        "text": ""
+        "text": "",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "当 MiniCPM VQA 同时接收到图像和视频信息时，它会仅处理视频信息而忽略图像信息。如果您想处理图像信息，请断开视频信息的输入。\n\nWhen MiniCPM VQA simultaneously receives both image and video information, it processes only the video information while ignoring the image information. If you want to process the image information, please disconnect the input of the video information."
@@ -35,8 +40,8 @@
         -111
       ],
       "size": [
-        452.45997097748295,
-        212.76987788146022
+        452.4599609375,
+        212.76988220214844
       ],
       "flags": {},
       "order": 2,
@@ -45,50 +50,53 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 55,
-          "widget": {
-            "name": "text"
-          }
+          "link": 56
         }
       ],
       "outputs": [
         {
           "name": "STRING",
+          "shape": 6,
           "type": "STRING",
-          "links": null,
-          "shape": 6
+          "links": null
         }
       ],
       "properties": {
-        "Node name for S&R": "DisplayText"
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "Node name for S&R": "DisplayText",
+        "widget_ue_connectable": {
+          "text": true
+        }
       },
       "widgets_values": [
-        "",
         "A quantum group is a mathematical object that generalizes the concept of a group to include elements with quantum numbers. In traditional groups, each element has a unique identity and can be multiplied or divided by other elements in the group. However, in quantum groups, some elements may have multiple identities or may not be able to be multiplied or divided.\nQuantum groups are used in various areas of mathematics and physics, including representation theory, statistical mechanics, and quantum field theory. They are particularly important in the study of quantum systems, where they provide a way to describe the behavior of particles that follow quantum mechanical rules.\nOne example of a quantum group is the quantum group associated with the Lie algebra sl(2), which describes the symmetries of the hyperbolic plane. This group has several interesting properties, such as the fact that it contains both integer and non-integer elements, and that it is not commutative."
       ]
     },
     {
-      "id": 52,
+      "id": 53,
       "type": "MiniCPM_VQA_Polished",
       "pos": [
         -28,
         -258
       ],
-      "size": {
-        "0": 400,
-        "1": 360
-      },
+      "size": [
+        400,
+        412
+      ],
       "flags": {},
-      "order": 0,
+      "order": 1,
       "mode": 0,
       "inputs": [
         {
-          "name": "source_video_path",
+          "name": "source_video",
+          "shape": 7,
           "type": "PATH",
           "link": null
         },
         {
-          "name": "source_image_path",
+          "name": "source_image",
+          "shape": 7,
           "type": "IMAGE",
           "link": null
         }
@@ -98,19 +106,20 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            55
-          ],
-          "shape": 3,
-          "slot_index": 0
+            56
+          ]
         }
       ],
       "properties": {
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {},
         "Node name for S&R": "MiniCPM_VQA_Polished"
       },
       "widgets_values": [
         "Quantum Group",
         "MiniCPM-V-2_6-int4",
-        true,
+        false,
         0.8,
         100,
         0.7,
@@ -118,15 +127,19 @@
         2048,
         64,
         2,
-        2021,
-        "randomize"
+        -1,
+        "randomize",
+        [
+          false,
+          true
+        ]
       ]
     }
   ],
   "links": [
     [
-      55,
-      52,
+      56,
+      53,
       0,
       49,
       0,
@@ -137,12 +150,19 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.4122927695244516,
+      "scale": 0.8769226950000005,
       "offset": [
-        151.62360770168286,
-        363.80059898448
+        800.461755366018,
+        691.2213547968443
       ]
-    }
+    },
+    "groupNodes": {},
+    "ue_links": [],
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }
