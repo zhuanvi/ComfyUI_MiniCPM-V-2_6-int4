@@ -1,8 +1,8 @@
 {
   "id": "f07442f7-7cf5-439d-ba91-1df453dd7521",
   "revision": 0,
-  "last_node_id": 57,
-  "last_link_id": 68,
+  "last_node_id": 58,
+  "last_link_id": 69,
   "nodes": [
     {
       "id": 7,
@@ -63,56 +63,14 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LoadImage",
         "cnr_id": "comfy-core",
         "ver": "0.3.44",
-        "Node name for S&R": "LoadImage",
         "widget_ue_connectable": {}
       },
       "widgets_values": [
         "ComfyUI_00509_.png",
         "image"
-      ]
-    },
-    {
-      "id": 52,
-      "type": "DisplayText",
-      "pos": [
-        385,
-        121
-      ],
-      "size": [
-        680.748046875,
-        233.9007110595703
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 68
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "shape": 6,
-          "type": "STRING",
-          "slot_index": 0,
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
-        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
-        "Node name for S&R": "DisplayText",
-        "widget_ue_connectable": {
-          "text": true
-        }
-      },
-      "widgets_values": [
-        "The image presents a breathtaking view of Earth from space, showcasing the planet's diverse landscapes and vibrant colors. The curvature of the Earth is clearly visible, emphasizing its spherical shape. The oceans are depicted in shades of blue, while the continents stand out with their distinct green hues.\n\nOne of the most striking features is the swirling patterns in the clouds, which create a mesmerizing effect against the backdrop of the dark cosmos. These patterns seem to dance across the sky, adding a dynamic element to the otherwise static scene.\n\nIn the top right corner, a distant star glows brightly, serving as a reminder of the vastness of space. This celestial body stands out starkly against the black expanse, providing a sense of scale and depth to the image.\n\nOverall, the image captures the awe-inspiring beauty of our home planet and the infinite universe that surrounds it. It's a testament to the wonders of nature and the mysteries of the cosmos."
       ]
     },
     {
@@ -133,7 +91,7 @@
         {
           "name": "source_video",
           "shape": 7,
-          "type": "PATH",
+          "type": "VIDEO",
           "link": null
         },
         {
@@ -148,19 +106,19 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            68
+            69
           ]
         }
       ],
       "properties": {
+        "Node name for S&R": "MiniCPM_VQA_Polished",
         "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
         "ver": "763f95133a95b611977efaa05ad654ff410670a9",
-        "widget_ue_connectable": {},
-        "Node name for S&R": "MiniCPM_VQA_Polished"
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "Describe the image in detail",
-        "MiniCPM-V-2_6-int4",
+        "MiniCPM-V-4-int4",
         true,
         0.8,
         100,
@@ -169,12 +127,45 @@
         2048,
         64,
         2,
-        1923,
-        "randomize",
-        [
-          false,
-          true
-        ]
+        1845,
+        "randomize"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "DisplayText",
+      "pos": [
+        390.8650207519531,
+        141.06495666503906
+      ],
+      "size": [
+        673.6586303710938,
+        218.28106689453125
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "DisplayText"
+      },
+      "widgets_values": [
+        "This image is a highly detailed and realistic depiction of planet Earth, showcasing the continents with remarkable clarity. Prominently featured are North America and South America at the center-left portion of the globe. The northern regions of these continents exhibit brown landmasses indicative of their diverse topography. Surrounding these areas are patches of green representing lush vegetation or forests, interspersed with white clouds that drift across the atmosphere.\n\nThe oceanic expanse around the continents appears as deep blue, adding contrast to the vibrant colors on the land. Towards the upper right corner of the image, there's an intriguing element resembling either another celestial body or perhaps atmospheric phenomena such as a solar flare emitting bright light. This adds a sense of depth and mystery to the overall composition.\n\nOverall, this captivating portrayal emphasizes both the beauty and complexity of our home planet while hinting at its enigmatic surroundings in space."
       ]
     }
   ],
@@ -188,10 +179,10 @@
       "IMAGE"
     ],
     [
-      68,
+      69,
       57,
       0,
-      52,
+      58,
       0,
       "STRING"
     ]
@@ -200,19 +191,20 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.0610764609500012,
+      "scale": 1.0610764609500007,
       "offset": [
-        543.953157114185,
-        300.68332472096347
+        391.6576442287418,
+        120.97620455457698
       ]
     },
     "groupNodes": {},
     "ue_links": [],
-    "frontendVersion": "1.23.4",
+    "frontendVersion": "1.25.5",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
-    "VHS_KeepIntermediate": true
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": []
   },
   "version": 0.4
 }

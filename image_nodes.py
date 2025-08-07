@@ -12,10 +12,10 @@ class MultipleImagesInput:
     RETURN_TYPES = ("IMAGE",)
     RETURN_NAMES = ("images",)
     FUNCTION = "combine"
-    CATEGORY = "Comfyui_MiniCPM-V-2_6-int4"
+    CATEGORY = "Comfyui_MiniCPM-V-4"
     DESCRIPTION = """
-Creates an image batch from multiple images.  
-You can set how many inputs the node has,  
+Creates an image batch from multiple images.
+You can set how many inputs the node has,
 with the **inputcount** and clicking update.
 """
 

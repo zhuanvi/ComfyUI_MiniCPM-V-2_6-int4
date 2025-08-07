@@ -1,8 +1,8 @@
 {
   "id": "663271fd-c088-42ea-892f-68d527b2a28e",
   "revision": 0,
-  "last_node_id": 56,
-  "last_link_id": 67,
+  "last_node_id": 57,
+  "last_link_id": 68,
   "nodes": [
     {
       "id": 7,
@@ -33,45 +33,44 @@
       "bgcolor": "#653"
     },
     {
-      "id": 52,
-      "type": "DisplayText",
+      "id": 51,
+      "type": "LoadImage",
       "pos": [
-        385,
-        128
+        -363,
+        -8
       ],
       "size": [
-        682.0110473632812,
-        262.51556396484375
+        308.788818359375,
+        398.5933532714844
       ],
       "flags": {},
-      "order": 3,
+      "order": 1,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 65
-        }
-      ],
+      "inputs": [],
       "outputs": [
         {
-          "name": "STRING",
-          "shape": 6,
-          "type": "STRING",
+          "name": "IMAGE",
+          "type": "IMAGE",
           "slot_index": 0,
+          "links": [
+            67
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
           "links": null
         }
       ],
       "properties": {
-        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
-        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
-        "Node name for S&R": "DisplayText",
-        "widget_ue_connectable": {
-          "text": true
-        }
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
-        "The image presents a captivating view of Earth, captured from space. The planet is beautifully illuminated by the sun's rays, casting a warm glow over its surface. The curvature of the Earth is clearly visible, emphasizing the vastness of our home planet.\n\nThe continents and oceans are distinctly outlined in shades of green and brown, respectively, providing a stark contrast against the deep blue of the surrounding space. This color palette not only highlights the natural beauty of our world but also underscores the delicate balance between land and water.\n\nThe atmosphere, depicted in hues of white and gray, appears as swirling clouds that blanket the planet. These clouds, reminiscent of cosmic dust storms, add a sense of dynamism to the otherwise serene scene.\n\nIn the backdrop, a distant star can be seen, serving as a reminder of the infinite universe beyond our own. Its presence adds depth to the image, creating a sense of scale and distance.\n\nOverall, the image provides a comprehensive view of Earth, showcasing its unique characteristics and placing it within the context of the cosmos. It's a testament to the awe-inspiring nature of our planet and the wonders of space exploration."
+        "ComfyUI_00509_.png",
+        "image"
       ]
     },
     {
@@ -119,19 +118,19 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            65
+            68
           ]
         }
       ],
       "properties": {
+        "Node name for S&R": "MiniCPM_VQA",
         "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
         "ver": "763f95133a95b611977efaa05ad654ff410670a9",
-        "widget_ue_connectable": {},
-        "Node name for S&R": "MiniCPM_VQA"
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "Describe the image in detail",
-        "MiniCPM-V-2_6-int4",
+        "MiniCPM-V-4-int4",
         true,
         0.8,
         100,
@@ -140,65 +139,49 @@
         2048,
         64,
         2,
-        171,
-        "randomize",
-        [
-          false,
-          true
-        ]
+        1443,
+        "randomize"
       ]
     },
     {
-      "id": 51,
-      "type": "LoadImage",
+      "id": 57,
+      "type": "DisplayText",
       "pos": [
-        -363,
-        -8
+        388.22991943359375,
+        140.32000732421875
       ],
       "size": [
-        308.788818359375,
-        398.5933532714844
+        677.37890625,
+        259.0337829589844
       ],
       "flags": {},
-      "order": 1,
+      "order": 3,
       "mode": 0,
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 68
+        }
+      ],
       "outputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            67
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
           "links": null
         }
       ],
       "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.44",
-        "Node name for S&R": "LoadImage",
-        "widget_ue_connectable": {}
+        "widget_ue_connectable": {},
+        "Node name for S&R": "DisplayText"
       },
       "widgets_values": [
-        "ComfyUI_00509_.png",
-        "image"
+        "This image is a highly detailed, computer-generated depiction of Earth from space. The perspective showcases the planet's curvature prominently in the center of the frame against an expansive black background that accentuates its vibrant colors and intricate details.\n\nThe continents are vividly rendered with rich green hues representing landmasses, particularly noticeable on North America where Canada, parts of the United States, Mexico, and Central America stand out clearly. South America occupies the lower right portion of the globe. Above these regions lies the Arctic area, distinguished by patches of white snow covering northern Canada and surrounding areas.\n\nThe oceans appear as deep blue, providing a stark contrast to the earthy tones of the continents. Scattered across various sections of the ocean are small white specks symbolizing clouds, adding depth and realism to the atmospheric portrayal.\n\nIn the upper left corner of the image, swirling patterns resembling whirlwinds or cloud formations add dynamic visual interest. A bright sun glows softly near the top edge of the composition, casting subtle light onto part of the atmosphere above North America. This interplay of natural elements creates a captivating snapshot of our home planet set within the vastness of outer space."
       ]
     }
   ],
   "links": [
-    [
-      65,
-      56,
-      0,
-      52,
-      0,
-      "STRING"
-    ],
     [
       67,
       51,
@@ -206,25 +189,34 @@
       56,
       1,
       "IMAGE"
+    ],
+    [
+      68,
+      56,
+      0,
+      57,
+      0,
+      "STRING"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7972024500000008,
+      "scale": 0.9646149645000006,
       "offset": [
-        966.3092597118825,
-        428.7617302857005
+        411.65231785482786,
+        170.44936703511385
       ]
     },
     "groupNodes": {},
     "ue_links": [],
-    "frontendVersion": "1.23.4",
+    "frontendVersion": "1.25.5",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
-    "VHS_KeepIntermediate": true
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": []
   },
   "version": 0.4
 }

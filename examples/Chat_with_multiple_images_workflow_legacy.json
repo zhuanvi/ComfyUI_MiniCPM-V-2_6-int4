@@ -1,15 +1,138 @@
 {
   "id": "cf5badb9-49fe-458c-a923-f3b66e937402",
   "revision": 0,
-  "last_node_id": 52,
-  "last_link_id": 64,
+  "last_node_id": 57,
+  "last_link_id": 69,
   "nodes": [
+    {
+      "id": 45,
+      "type": "LoadImage",
+      "pos": [
+        -691,
+        15
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            61
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00532_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "LoadImage",
+      "pos": [
+        -361,
+        -193
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            62
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00509_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "LoadImage",
+      "pos": [
+        -360,
+        161
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            63
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00508_.png",
+        "image"
+      ]
+    },
     {
       "id": 7,
       "type": "Note",
       "pos": [
-        415,
-        -78
+        423.2934265136719,
+        -52.42848205566406
       ],
       "size": [
         436.568115234375,
@@ -18,7 +141,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 0,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -77,19 +200,19 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            64
+            69
           ]
         }
       ],
       "properties": {
+        "Node name for S&R": "MiniCPM_VQA",
         "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
         "ver": "763f95133a95b611977efaa05ad654ff410670a9",
-        "widget_ue_connectable": {},
-        "Node name for S&R": "MiniCPM_VQA"
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
         "Compare image 1, image 2 and image 3, tell me about the differences among them.",
-        "MiniCPM-V-2_6-int4",
+        "MiniCPM-V-4-int4",
         false,
         0.8,
         100,
@@ -98,147 +221,20 @@
         2048,
         64,
         2,
-        713,
-        "randomize",
-        [
-          false,
-          true
-        ]
+        1888,
+        "randomize"
       ]
     },
     {
-      "id": 45,
-      "type": "LoadImage",
-      "pos": [
-        -691,
-        15
-      ],
-      "size": [
-        315,
-        314
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            61
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.44",
-        "Node name for S&R": "LoadImage",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        "ComfyUI_00532_.png",
-        "image"
-      ]
-    },
-    {
-      "id": 43,
-      "type": "LoadImage",
-      "pos": [
-        -361,
-        -193
-      ],
-      "size": [
-        315,
-        314
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            62
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.44",
-        "Node name for S&R": "LoadImage",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        "ComfyUI_00509_.png",
-        "image"
-      ]
-    },
-    {
-      "id": 47,
-      "type": "LoadImage",
-      "pos": [
-        -360,
-        161
-      ],
-      "size": [
-        315,
-        314
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            63
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.44",
-        "Node name for S&R": "LoadImage",
-        "widget_ue_connectable": {}
-      },
-      "widgets_values": [
-        "ComfyUI_00508_.png",
-        "image"
-      ]
-    },
-    {
-      "id": 52,
+      "id": 57,
       "type": "DisplayText",
       "pos": [
-        411,
-        79
+        427.6014404296875,
+        119.65513610839844
       ],
       "size": [
-        451.1885070800781,
-        265.198974609375
+        431.3169250488281,
+        210.38330078125
       ],
       "flags": {},
       "order": 5,
@@ -247,7 +243,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 64
+          "link": 69
         }
       ],
       "outputs": [
@@ -259,13 +255,11 @@
         }
       ],
       "properties": {
-        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
-        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
         "widget_ue_connectable": {},
         "Node name for S&R": "DisplayText"
       },
       "widgets_values": [
-        "In comparing the three images, we observe that image 1 showcases a realistic view of Earth from space with clouds and the sun visible in the background. Image 2 adds an element of fantasy by introducing a black planet beside Earth, which could be interpreted as a moon or another celestial body. Finally, image 3 incorporates a ring system around Earth, giving it the appearance of Saturn, while still maintaining the realistic portrayal of Earth's surface and atmosphere."
+        "Image 1 and image 2 depict the Earth with different parts of its surface visible. Image 1 shows North America, while image 2 focuses on Africa and Europe. In contrast, image 3 features Saturn with its iconic rings surrounding it. The main difference among these images is the celestial body depicted in each one."
       ]
     }
   ],
@@ -295,10 +289,10 @@
       "IMAGE"
     ],
     [
-      64,
+      69,
       51,
       0,
-      52,
+      57,
       0,
       "STRING"
     ]
@@ -307,16 +301,16 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.1671841070450024,
+      "scale": 0.8378523119015135,
       "offset": [
-        596.3171441618107,
-        143.3704450969379
+        817.9855578825247,
+        292.40168823944055
       ]
     },
     "groupNodes": {},
     "ue_links": [],
     "links_added_by_ue": [],
-    "frontendVersion": "1.23.4",
+    "frontendVersion": "1.25.5",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,

@@ -3,10 +3,9 @@ import torch
 import folder_paths
 from transformers import AutoTokenizer, AutoModel
 from torchvision.transforms.v2 import ToPILImage
-from PIL import Image
 from comfy.comfy_types import IO
 from comfy_api.input import VideoInput
-import numpy as np
+
 
 class MiniCPM_VQA:
     def __init__(self):
@@ -27,8 +26,8 @@ class MiniCPM_VQA:
             "required": {
                 "text": ("STRING", {"default": "", "multiline": True}),
                 "model": (
-                    ["MiniCPM-V-2_6-int4", "MiniCPM-Llama3-V-2_5-int4"],
-                    {"default": "MiniCPM-V-2_6-int4"},
+                    ["MiniCPM-V-4-int4", "MiniCPM-V-4"],
+                    {"default": "MiniCPM-V-4-int4"},
                 ),
                 "keep_model_loaded": ("BOOLEAN", {"default": False}),
                 "top_p": (
@@ -83,7 +82,7 @@ class MiniCPM_VQA:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "inference"
-    CATEGORY = "Comfyui_MiniCPM-V-2_6-int4"
+    CATEGORY = "Comfyui_MiniCPM-V-4"
 
     def encode_video(self, source_video: VideoInput, MAX_NUM_FRAMES):
         def uniform_sample(l, n):  # noqa: E741
@@ -127,7 +126,7 @@ class MiniCPM_VQA:
         source_image_1st=None,
         source_image_2nd=None,
         source_image_3rd=None,
-        source_video: VideoInput=None,
+        source_video: VideoInput = None,
     ):
         if seed != -1:
             torch.manual_seed(seed)
@@ -220,27 +219,27 @@ class MiniCPM_VQA:
                 and source_image_2nd is None
                 and source_image_3rd is None
             ):
-                image = ToPILImage()(
-                    source_image_1st.permute([0, 3, 1, 2])[0]
-                ).convert("RGB")
+                image = ToPILImage()(source_image_1st.permute([0, 3, 1, 2])[0]).convert(
+                    "RGB"
+                )
                 msgs = [{"role": "user", "content": [image, text]}]
             elif (
                 source_image_1st is None
                 and source_image_2nd is not None
                 and source_image_3rd is None
             ):
-                image = ToPILImage()(
-                    source_image_2nd.permute([0, 3, 1, 2])[0]
-                ).convert("RGB")
+                image = ToPILImage()(source_image_2nd.permute([0, 3, 1, 2])[0]).convert(
+                    "RGB"
+                )
                 msgs = [{"role": "user", "content": [image, text]}]
             elif (
                 source_image_1st is None
                 and source_image_2nd is None
                 and source_image_3rd is not None
             ):
-                image = ToPILImage()(
-                    source_image_3rd.permute([0, 3, 1, 2])[0]
-                ).convert("RGB")
+                image = ToPILImage()(source_image_3rd.permute([0, 3, 1, 2])[0]).convert(
+                    "RGB"
+                )
                 msgs = [{"role": "user", "content": [image, text]}]
             else:
                 msgs = [{"role": "user", "content": [text]}]

@@ -2,6 +2,7 @@ from .nodes_legacy import MiniCPM_VQA
 from .nodes_polished import MiniCPM_VQA_Polished
 from .image_nodes import MultipleImagesInput
 from .display_text_nodes import DisplayText
+
 WEB_DIRECTORY = "./web"
 # A dictionary that contains all nodes you want to export with their names
 # NOTE: names should be globally unique

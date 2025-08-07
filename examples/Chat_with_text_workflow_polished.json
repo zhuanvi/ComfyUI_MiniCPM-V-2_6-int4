@@ -1,8 +1,8 @@
 {
   "id": "7efe6818-5b98-4dbe-aae3-317073142f92",
   "revision": 0,
-  "last_node_id": 53,
-  "last_link_id": 56,
+  "last_node_id": 56,
+  "last_link_id": 59,
   "nodes": [
     {
       "id": 7,
@@ -33,47 +33,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 49,
-      "type": "DisplayText",
-      "pos": [
-        386,
-        -111
-      ],
-      "size": [
-        452.4599609375,
-        212.76988220214844
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 56
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "shape": 6,
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
-        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
-        "Node name for S&R": "DisplayText",
-        "widget_ue_connectable": {
-          "text": true
-        }
-      },
-      "widgets_values": [
-        "A quantum group is a mathematical object that generalizes the concept of a group to include elements with quantum numbers. In traditional groups, each element has a unique identity and can be multiplied or divided by other elements in the group. However, in quantum groups, some elements may have multiple identities or may not be able to be multiplied or divided.\nQuantum groups are used in various areas of mathematics and physics, including representation theory, statistical mechanics, and quantum field theory. They are particularly important in the study of quantum systems, where they provide a way to describe the behavior of particles that follow quantum mechanical rules.\nOne example of a quantum group is the quantum group associated with the Lie algebra sl(2), which describes the symmetries of the hyperbolic plane. This group has several interesting properties, such as the fact that it contains both integer and non-integer elements, and that it is not commutative."
-      ]
-    },
-    {
       "id": 53,
       "type": "MiniCPM_VQA_Polished",
       "pos": [
@@ -91,7 +50,7 @@
         {
           "name": "source_video",
           "shape": 7,
-          "type": "PATH",
+          "type": "VIDEO",
           "link": null
         },
         {
@@ -106,19 +65,19 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            56
+            59
           ]
         }
       ],
       "properties": {
+        "Node name for S&R": "MiniCPM_VQA_Polished",
         "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
         "ver": "763f95133a95b611977efaa05ad654ff410670a9",
-        "widget_ue_connectable": {},
-        "Node name for S&R": "MiniCPM_VQA_Polished"
+        "widget_ue_connectable": {}
       },
       "widgets_values": [
-        "Quantum Group",
-        "MiniCPM-V-2_6-int4",
+        "Why is the sky blue?",
+        "MiniCPM-V-4-int4",
         false,
         0.8,
         100,
@@ -127,21 +86,54 @@
         2048,
         64,
         2,
-        -1,
-        "randomize",
-        [
-          false,
-          true
-        ]
+        1432,
+        "randomize"
+      ]
+    },
+    {
+      "id": 56,
+      "type": "DisplayText",
+      "pos": [
+        392.57000732421875,
+        -93.56874084472656
+      ],
+      "size": [
+        442.1517333984375,
+        229.07498168945312
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 59
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "DisplayText"
+      },
+      "widgets_values": [
+        "The sky is blue because of a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it interacts with gas molecules such as nitrogen and oxygen which scatter shorter wavelengths (blue light) more than longer wavelengths (red light). This causes the sky to appear blue when viewed from space or even in some cases during sunrise/sunset depending on how much dust particles are present within our atmosphere"
       ]
     }
   ],
   "links": [
     [
-      56,
+      59,
       53,
       0,
-      49,
+      56,
       0,
       "STRING"
     ]
@@ -150,19 +142,20 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8769226950000005,
+      "scale": 1.1671841070450013,
       "offset": [
-        800.461755366018,
-        691.2213547968443
+        189.45751021231808,
+        351.168856958881
       ]
     },
     "groupNodes": {},
     "ue_links": [],
-    "frontendVersion": "1.23.4",
+    "frontendVersion": "1.25.5",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
-    "VHS_KeepIntermediate": true
+    "VHS_KeepIntermediate": true,
+    "links_added_by_ue": []
   },
   "version": 0.4
 }

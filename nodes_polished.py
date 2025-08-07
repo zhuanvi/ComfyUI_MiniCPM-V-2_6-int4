@@ -3,10 +3,8 @@ import torch
 import folder_paths
 from transformers import AutoTokenizer, AutoModel
 from torchvision.transforms.v2 import ToPILImage
-from PIL import Image
 from comfy.comfy_types import IO
 from comfy_api.input import VideoInput
-import numpy as np
 
 
 class MiniCPM_VQA_Polished:
@@ -28,8 +26,8 @@ class MiniCPM_VQA_Polished:
             "required": {
                 "text": ("STRING", {"default": "", "multiline": True}),
                 "model": (
-                    ["MiniCPM-V-2_6-int4", "MiniCPM-Llama3-V-2_5-int4"],
-                    {"default": "MiniCPM-V-2_6-int4"},
+                    ["MiniCPM-V-4-int4", "MiniCPM-V-4"],
+                    {"default": "MiniCPM-V-4-int4"},
                 ),
                 "keep_model_loaded": ("BOOLEAN", {"default": False}),
                 "top_p": (
@@ -82,7 +80,7 @@ class MiniCPM_VQA_Polished:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "inference"
-    CATEGORY = "Comfyui_MiniCPM-V-2_6-int4"
+    CATEGORY = "Comfyui_MiniCPM-V-4"
 
     def encode_video(self, source_video: VideoInput, MAX_NUM_FRAMES):
         def uniform_sample(l, n):  # noqa: E741
@@ -124,7 +122,7 @@ class MiniCPM_VQA_Polished:
         video_max_slice_nums,
         seed,
         source_image=None,
-        source_video: VideoInput=None,
+        source_video: VideoInput = None,
     ):
         if seed != -1:
             torch.manual_seed(seed)
