@@ -26,8 +26,8 @@ class MiniCPM_VQA:
             "required": {
                 "text": ("STRING", {"default": "", "multiline": True}),
                 "model": (
-                    ["MiniCPM-V-4-int4", "MiniCPM-V-4"],
-                    {"default": "MiniCPM-V-4-int4"},
+                    ["MiniCPM-V-4_5-int4", "MiniCPM-V-4_5"],
+                    {"default": "MiniCPM-V-4_5-int4"},
                 ),
                 "keep_model_loaded": ("BOOLEAN", {"default": False}),
                 "top_p": (
@@ -82,7 +82,7 @@ class MiniCPM_VQA:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "inference"
-    CATEGORY = "Comfyui_MiniCPM-V-4"
+    CATEGORY = "Comfyui_MiniCPM-V-4_5"
 
     def encode_video(self, source_video: VideoInput, MAX_NUM_FRAMES):
         def uniform_sample(l, n):  # noqa: E741

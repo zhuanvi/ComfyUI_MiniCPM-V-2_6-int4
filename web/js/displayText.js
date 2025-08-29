@@ -2,7 +2,7 @@ const app = window.comfyAPI.app.app;
 const ComfyWidgets = window.comfyAPI.widgets.ComfyWidgets;
 
 app.registerExtension({
-  name: "Comfyui_MiniCPM-V-4.DisplayTextNode",
+  name: "Comfyui_MiniCPM-V-4_5.DisplayTextNode",
   async beforeRegisterNodeDef(nodeType, nodeData, app) {
     if (nodeData.name === "DisplayText") {
       function populate(text) {

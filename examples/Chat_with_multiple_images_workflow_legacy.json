@@ -212,7 +212,7 @@
       },
       "widgets_values": [
         "Compare image 1, image 2 and image 3, tell me about the differences among them.",
-        "MiniCPM-V-4-int4",
+        "MiniCPM-V-4_5-int4",
         false,
         0.8,
         100,

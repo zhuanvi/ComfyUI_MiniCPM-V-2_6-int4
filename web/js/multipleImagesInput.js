@@ -1,7 +1,7 @@
 const app = window.comfyAPI.app.app;
 
 app.registerExtension({
-  name: "Comfyui_MiniCPM-V-4.MultipleImagesInput",
+  name: "Comfyui_MiniCPM-V-4_5.MultipleImagesInput",
   async beforeRegisterNodeDef(nodeType, nodeData, app) {
     if (!nodeData?.category?.startsWith("Comfyui_MiniCPM-V-int4")) {
       return;
